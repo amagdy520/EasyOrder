@@ -1,0 +1,128 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'ayamagdy8265'
+            storeFile file('D:/Work/Mohab/EasyUser.jks')
+            storePassword 'ayamagdy8265'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.easy.order"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 4
+        versionName "1.4.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
+    implementation 'com.android.support:design:28.0.0-rc02'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-vector-drawable:28.0.0-rc02'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.android.support:cardview-v7:28.0.0-rc02'
+    implementation 'com.android.support:support-v4:28.0.0-rc02'
+    implementation 'com.azoft.carousellayoutmanager:carousel:1.2.1'
+//    implementation 'com.github.AnthonyFermin:DropDownView:1.0.1'
+    implementation 'com.roughike:bottom-bar:2.3.1'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.ramotion.foldingcell:folding-cell:1.2.2'
+    implementation 'com.jakewharton:butterknife:8.7.0'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+    implementation 'com.github.clans:fab:1.6.2'
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation 'info.hoang8f:fbutton:1.0.5'
+    implementation 'com.jsibbold:zoomage:1.2.0-SNAPSHOT'
+    //Firebase Implementations
+    //    implementation 'com.google.firebase:firebase-auth:16.0.1'
+    //    implementation 'com.google.firebase:firebase-database:16.0.1'
+    //    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-analytics:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:16.0.4'
+    implementation 'com.google.firebase:firebase-firestore:17.1.1'
+    implementation 'com.google.firebase:firebase-functions:16.1.1'
+    implementation 'com.google.firebase:firebase-messaging:17.3.3'
+    implementation 'com.google.firebase:firebase-storage:16.0.3'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    //add this
+    //    implementation 'com.google.firebase:firebase-storage:16.0.1'
+    //    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+    // FirebaseUI for Firebase Realtime Database
+    implementation 'com.firebaseui:firebase-ui-database:2.0.1'
+    //    implementation 'com.firebaseui:firebase-ui-database:2.0.1'
+    //    implementation 'com.google.firebase:firebase-auth:17.0.0'
+    //    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+    //    implementation 'com.google.firebase:firebase-database:17.0.0'
+    //    implementation 'com.google.firebase:firebase-storage:17.0.0'
+    //    implementation 'com.google.firebase:firebase-ads:17.2.0'
+    //    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    //Firebase End
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+    implementation('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+        exclude module: 'support-v4'
+    }
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+    implementation 'commons-codec:commons-codec:1.10'
+    implementation 'com.android.support:support-compat:28.0.0'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    //Facebook Implementations
+    implementation 'com.facebook.android:facebook-android-sdk:4.39.0'
+    implementation 'com.stripe:stripe-android:6.1.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+}
+apply plugin: 'com.google.gms.google-services'

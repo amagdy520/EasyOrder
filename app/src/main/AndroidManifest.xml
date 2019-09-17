@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.easy.order">
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:name=".EasyOrder"
+        android:largeHeap="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/launcher"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        tools:replace="android:supportsRtl">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity For Image Cropper -->
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainScreens.MainActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".MainScreens.ClientsActivity" />
+        <activity android:name=".MainScreens.ClientProfileActivity" />
+        <activity
+            android:name=".MainScreens.PhoneNumbersActivity"
+            android:theme="@style/DialogStyle" />
+        <activity android:name=".MainScreens.GalleryActivity" />
+        <activity android:name=".MainScreens.ZoomActivity" />
+        <activity
+            android:name=".LoginScreens.LoginActivity"
+            android:theme="@style/SplashTheme" />
+        <activity android:name=".MainScreens.FavouriteActivity" />
+        <activity android:name=".MainScreens.OffersActivity" />
+
+        <service
+            android:name=".Notifications.MyFirebaseIdService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".Notifications.MyFirebaseMessaging"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".MainScreens.ChatActivity" />
+        <activity android:name=".MainScreens.ChatListActivity" />
+        <activity
+            android:name=".MainScreens.DialogFilter"
+            android:theme="@style/DialogStyle" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5373aa68c17184505ac15c088b1ade6d781229b0" />
+
+        <activity android:name=".UserProfile.ProfileActivity" />
+        <activity
+            android:name=".MainScreens.PhoneActivateActivity"
+            android:theme="@style/DialogStyle" />
+        <activity
+            android:name=".MainScreens.CodeCheckActivity"
+            android:theme="@style/DialogStyle" />
+        <activity android:name=".MainScreens.GallerySliderImageActivity" />
+        <activity android:name=".MainScreens.OtherCategoryActivity" />
+        <activity android:name=".MainScreens.JoinUsActivity" />
+        <activity android:name=".UserProfile.SettingActivity" />
+        <activity android:name=".MainScreens.UpdateAddressActivity"
+            android:theme="@style/DialogStyle" />
+    </application>
+
+</manifest>
